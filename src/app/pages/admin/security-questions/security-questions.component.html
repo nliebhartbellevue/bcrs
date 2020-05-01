@@ -37,7 +37,7 @@
                                 [switch-on-color]="'primary'"
                                 [switch-off-color]="'primary'"
                                 [(ngModel)]="question.disabled"
-                                (changeState)="openDialog('Delete', question)"
+                                (changeState)="openDialog('Disable', question)"
                               >
                                 {{ question.disabled ? 'On' : 'Off' }}
                               </bSwitch>

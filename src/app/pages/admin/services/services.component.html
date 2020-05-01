@@ -43,7 +43,7 @@
                                 [switch-on-color]="'primary'"
                                 [switch-off-color]="'primary'"
                                 [(ngModel)]="service.disabled"
-                                (changeState)="openDialog('Delete', service)"
+                                (changeState)="openDialog('Disable', service)"
                               >
                                 {{ service.disabled ? 'On' : 'Off' }}
                               </bSwitch>

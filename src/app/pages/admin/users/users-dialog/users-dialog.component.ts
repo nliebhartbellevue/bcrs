@@ -311,7 +311,7 @@ export class UsersDialogComponent implements OnInit, OnDestroy {
       this.usersForm.controls.email.disable();
       this.usersForm.controls.role.disable();
     }
-    if (this.data.action === 'Delete') {
+    if (this.data.action === 'Disable') {
       this.usersForm.controls.username.disable();
       this.usersForm.controls.firstName.disable();
       this.usersForm.controls.lastName.disable();
@@ -367,7 +367,7 @@ export class UsersDialogComponent implements OnInit, OnDestroy {
         this.userService.updateUser(user).subscribe((message) => {
           this.sendToastMessage('User has been successfully updated!');
         });
-      } else if (action === 'Delete') {
+      } else if (action === 'Disable') {
         let msg = '';
         if (user.disabled === false) {
           msg = 'User is now disabled';

@@ -44,7 +44,7 @@
                                 [switch-on-color]="'primary'"
                                 [switch-off-color]="'primary'"
                                 [(ngModel)]="user.disabled"
-                                (changeState)="openDialog('Delete', user)"
+                                (changeState)="openDialog('Disable', user)"
                               >
                                 {{ user.disabled ? 'On' : 'Off' }}
                               </bSwitch>

@@ -38,7 +38,7 @@ export class ServicesDialogComponent implements OnInit, OnDestroy {
       title: new FormControl(this.data.obj.title, Validators.required),
       price: new FormControl(this.data.obj.price, Validators.required),
       description: new FormControl(this.data.obj.description),
-      imageUrl: new FormControl(this.data.obj.imageUrl)
+      imageUrl: new FormControl(this.data.obj.imageUrl),
     });
   }
 
@@ -63,7 +63,7 @@ export class ServicesDialogComponent implements OnInit, OnDestroy {
       title: this.serviceForm.controls.title.value,
       price: this.serviceForm.controls.price.value,
       description: this.serviceForm.controls.description.value,
-      imageUrl: this.serviceForm.controls.imageUrl.value
+      imageUrl: this.serviceForm.controls.imageUrl.value,
     };
 
     setTimeout(() => {
@@ -78,7 +78,7 @@ export class ServicesDialogComponent implements OnInit, OnDestroy {
             this.sendToastMessage('Service has been successfully updated!');
           });
           break;
-        case 'Delete':
+        case 'Disable':
           this.sService.deleteService(service).subscribe((message) => {
             this.sendToastMessage('Service has been successfully disabled!');
           });
