@@ -49,18 +49,6 @@ export class LoginComponent implements OnInit, OnDestroy {
       this.auth.login(this.loginForm.controls.username.value, this.loginForm.controls.password.value);
       this.sendToastMessage('Login successful!');
       this.loading = false;
-      this.role = localStorage.getItem('role');
-      switch (this.role) {
-        case 'admin':
-          this.router.navigate(['/admin/purchases']);
-          break;
-        case 'standard':
-          this.router.navigate(['/service-repair']);
-          break;
-        default:
-          this.router.navigate(['/invoices']);
-          break;
-      }
     }, 2000);
   }
 
