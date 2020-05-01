@@ -64,6 +64,7 @@ export class ServicesDialogComponent implements OnInit, OnDestroy {
       price: this.serviceForm.controls.price.value,
       description: this.serviceForm.controls.description.value,
       imageUrl: this.serviceForm.controls.imageUrl.value,
+      disabled: this.serviceForm.controls.disabled.value,
     };
 
     setTimeout(() => {
@@ -80,7 +81,7 @@ export class ServicesDialogComponent implements OnInit, OnDestroy {
           break;
         case 'Disable':
           this.sService.deleteService(service).subscribe((message) => {
-            this.sendToastMessage('Service has been successfully disabled!');
+            this.sendToastMessage('Service has been successfully disabled/enabled!');
           });
           break;
         default:
