@@ -30,7 +30,7 @@ exports.register = (req, res, next) => {
         state: req.body.state,
         zipCode: req.body.zipCode,
         email: req.body.email,
-        role: req.body.role,
+        role: 'customer',
         password: hash,
         securityAnswers: req.body.securityAnswers,
       });

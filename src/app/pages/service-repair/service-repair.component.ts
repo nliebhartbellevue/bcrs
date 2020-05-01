@@ -11,6 +11,8 @@ import { Service } from '../../models/service.model';
 import { Invoice } from '../../models/invoice.model';
 import { ServiceService } from '../../services/service.service';
 import { InvoiceService } from '../../services/invoice.service';
+import { CustomValidators } from '../../validators/custom-validators';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-service-repair',
@@ -31,7 +33,8 @@ export class ServiceRepairComponent implements OnInit, OnDestroy {
     private sService: ServiceService,
     private invoiceService: InvoiceService,
     private _snackBar: MatSnackBar,
-    private router: Router
+    private router: Router,
+    private auth: AuthService
   ) {}
 
   get f() {
@@ -67,7 +70,7 @@ export class ServiceRepairComponent implements OnInit, OnDestroy {
     this.form = this._formBuilder.group({
       laborHours: new FormControl('', Validators.required),
       parts: new FormControl(''),
-      username: new FormControl('', Validators.required),
+      username: new FormControl('', Validators.required, CustomValidators.usernameValidator(this.auth)),
     });
     this.sService.getServices().subscribe((serviceList) => {
       this.serviceList = serviceList;
