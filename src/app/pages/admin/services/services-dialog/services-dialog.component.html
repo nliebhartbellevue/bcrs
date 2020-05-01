@@ -46,6 +46,7 @@
           </div>
           <input class="form-control" type="text" formControlName="imageUrl" />
         </div>
+        <input type="text" formControlName="disabled" [hidden]="true" />
       </div>
     </div>
     <div [hidden]="data.action.toString() !== 'Disable'" class="text-danger">
