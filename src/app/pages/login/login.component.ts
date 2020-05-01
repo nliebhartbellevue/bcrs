@@ -48,6 +48,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     setTimeout(() => {
       this.auth.login(this.loginForm.controls.username.value, this.loginForm.controls.password.value);
       this.sendToastMessage('Login successful!');
+      this.loading = false;
       this.role = localStorage.getItem('role');
       switch (this.role) {
         case 'admin':
@@ -60,7 +61,6 @@ export class LoginComponent implements OnInit, OnDestroy {
           this.router.navigate(['/invoices']);
           break;
       }
-      this.loading = false;
     }, 2000);
   }
 
