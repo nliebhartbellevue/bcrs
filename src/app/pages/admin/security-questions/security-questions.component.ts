@@ -16,7 +16,6 @@ import { SecurityQuestionsDialogComponent } from './security-questions-dialog/se
   styleUrls: ['./security-questions.component.scss'],
 })
 export class SecurityQuestionsComponent implements OnInit, OnDestroy {
-  dataSource;
   loading = false;
   securityQuestions: SecurityQuestion[] = [];
 
@@ -52,10 +51,8 @@ export class SecurityQuestionsComponent implements OnInit, OnDestroy {
 
     dialogRef.afterClosed().subscribe((result) => {
       this.sqService.getSecurityQuestions().subscribe((securityQuestionList) => {
-        setTimeout(() => {
-          this.securityQuestions = securityQuestionList;
-          this.loading = false;
-        }, 500);
+        this.securityQuestions = securityQuestionList;
+        this.loading = false;
       });
     });
   }
