@@ -12,6 +12,7 @@ import { UserService } from '../../../../services/user.service';
 import { AuthService } from '../../../../services/auth.service';
 import { Role } from '../../../../models/role.model';
 import { RoleService } from '../../../../services/role.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-users-dialog',
@@ -270,7 +271,8 @@ export class UsersDialogComponent implements OnInit, OnDestroy {
     private roleService: RoleService,
     private authService: AuthService,
     private formBuilder: FormBuilder,
-    private _snackBar: MatSnackBar
+    private _snackBar: MatSnackBar,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -380,7 +382,7 @@ export class UsersDialogComponent implements OnInit, OnDestroy {
           this.sendToastMessage('User has been successfully disabled!');
         });
       } else if (action === 'Reset') {
-        console.log('Reset Password');
+        this.router.navigate(['/forgot-password']);
       }
       this.loading = false;
       this.dialogRef.close();
